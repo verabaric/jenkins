@@ -28,7 +28,5 @@ public class Controller {
         Project project = projectService.find(id);
         return ResponseEntity.ok(project);
     }
-    /*
 
-     */
 }
