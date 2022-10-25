@@ -21,6 +21,7 @@ pipeline {
                 expression{
                     "$x_github_event" =='pull-request'
                 }
+            }    
             steps {
                 echo "$action"
                 build job:"pullJob"
@@ -31,6 +32,7 @@ pipeline {
                 expression{
                     "$x_github_event" =='issue-comment'
                 }
+            }    
             steps {
                 echo "${comment}"
                 build job:"commentJob"
