@@ -6,12 +6,11 @@ pipeline {
     }
 
     parameters {
-        string(name: 'COMMENT', defaultValue: 'test-params', description: 'desc')
-        string(name: 'BRANCH', defaultValue: 'master', description: 'desc')
+        choice(name: 'ENV', choices:['DEV', 'QA', 'PROD'], description:'')
     }
 
     stages {
-        stage('triger build') {
+        stage('param_1') {
             steps {
                 script {
                     def comm = readJSON text: "$commits"
@@ -23,7 +22,7 @@ pipeline {
                         echo it
                         if (msg.contains(it)) {
                             echo 'contains'
-                            build job: it, parameters: [[$class: 'StringParameterValue', name: 'BRANCH', value: "${params.BRANCH}"],
+                            build job: it, parameters: [[string(name: 'ENV', value: "${params.ENV}")],
                             [$class: 'StringParameterValue', name: 'REF', value: "$ref"]]
                         }
                     }
