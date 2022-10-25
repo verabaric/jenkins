@@ -12,7 +12,7 @@ pipeline {
                 }
             }
             steps {
-                echo "$ref"
+                echo "${ref}"
                 build job:"pushJob"
             }
         }
