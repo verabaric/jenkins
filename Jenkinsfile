@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    parameters {
-            choice(name: 'ENV', choices:['DEV', 'QA', 'PROD'], description:'')
-        }
     
     stages {
         stage('param_1') {
@@ -12,7 +9,7 @@ pipeline {
                 }
             }
             steps {
-                echo "${ref}"
+                echo "$ref"
                 build job:"pushJob"
             }
         }
