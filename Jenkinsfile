@@ -31,7 +31,7 @@ pipeline {
                 }
             }    
             steps {
-                echo "${comment}"
+                echo "$comment"
                 build job:"commentJob"
             }
         }
