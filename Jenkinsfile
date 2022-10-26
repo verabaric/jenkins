@@ -16,7 +16,7 @@ pipeline {
         stage('param_2') {
             when {
                 expression{
-                    "$x_github_event" =='pull-request'
+                    "$x_github_event" =='pull_request'
                 }
             }    
             steps {
@@ -27,7 +27,7 @@ pipeline {
         stage('param_3') {
             when {
                 expression{
-                    "$x_github_event" =='issue-comment'
+                    "$x_github_event" =='issue_comment'
                 }
             }    
             steps {
